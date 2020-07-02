@@ -1,0 +1,63 @@
+
+TODOS:
+# you are bieng hunted / chased , there is a bike and road to escape. If you dont take the bike , hunter gets you 
+# for async user interface refisters observer and has 
+def setUserInputString()
+that inturn notufies observers of change 
+user interface registers inpout for example websocket or some request
+everytime this reqyest comes it calls setUserInputString with value from async input  event
+if blocking standard input is your input then sending string to in out module immediately calls the method with the outcome
+this requires inout module to be independent and use separat print and input ,ethods 
+
+#think about cases where names could be two words 'rusty sword' 'spell book'
+
+#using lamp is distributing loght to adjoining rooms
+
+    # if tool for playing action castle:
+        cool if players have weird ideas option to add to room description
+        by entering add: pillow is now torn apart you modify the description permanently
+        
+    # there should be check canDescribe, some rooms having state - too dark to read and so on
+    
+    DECOUPLING FROM BLOCKING INPUT TEXT INTERFACE to make asynchronous:
+        keep loop on hold till user input comes
+        do not use loop, instead keep state waitingForUserInput
+
+    # what else could be dependent on the map data (JSON LIKE)
+        - verbs for examine, go , look , use, open and so on
+
+    # apart from json like map - you can provide custom functions 
+    that accept current room, player, state and what not
+     as parameter - check if it is possible to store function in dict 
+     or user has to put them in object or name specifically
+
+ideas:
+    APEIRON LIKE:
+    - ground, mechanics, and code breaking user can creat his own rooms, items?
+    - travelling by looking, (look verb could be a door-like mechanism)
+    
+    OTHER:
+    { CAN GO TOGETHER
+    - Nemesis monster
+        needs time variable and simple AI, somebody following your steps,
+        and maybe is able to leave footprints (affecting each room state)
+
+    - Time travel:
+        an orthogonal dimension to travel, but changing things in the past changes future
+        you cannot meet yourself, this could be the main NEMESIS plot, nemesis is you
+            you need to store every command written and replay it
+        poblem how to build game in such a way simple , that 
+        how to connect the state of two rooms such that time travel is possible
+    }
+
+    - talk to schizophrenic voice in your head, that knows more than you/
+
+    - Schizophrenic VOICE:
+        YOU ARE SCHIZOPHRENIC VOICE, and character sometimes does 
+        not do what you command. 
+        Voice - YOu is time traveller, and doesnt know why but knows about guards placement
+        every time you die you start anew - and you hear your past voices telling you what to do.
+
+    - Hunters, Nemesis are entity that moves across rooms independently, tracking player . Player leaves marks like foot prints, and they
+     know where he is. He can hide but some actions may reveal him. depending where they are.
+    On each move of the player their object gets updated. 
