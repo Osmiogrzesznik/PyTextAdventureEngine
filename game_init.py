@@ -85,6 +85,9 @@ class Game:
         # BOOKMARK
         # finish use method,
 
+        self.previousGameplayCommands = []
+        # TODO after dying game restarts and the previous commands are added to the voice talking to you
+
         self.time = 0
         self.ui = user_interface
         self.rooms = {}

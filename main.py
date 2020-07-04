@@ -2,11 +2,11 @@
 # qpy:console
 from copy import deepcopy
 from map1 import map
-from user_interface import testUserInterface, UserInterface
+from user_interface import TestUserInterface, UserInterface
 from game_init import *
 
 
-textUI = testUserInterface()
+textUI = TestUserInterface()
 # game should be called timeline? can be restarted with data of the past game
 game = Game(deepcopy(map), textUI, None, None)
 # game.start_loop('y')

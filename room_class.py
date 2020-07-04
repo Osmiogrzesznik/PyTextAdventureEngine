@@ -12,15 +12,16 @@ class Room:
         self.exits = []
         self.dct = dct
         self.description = dct['d']
-        self.once = dct['once']
+        self.once = byKey(dct, 'once', False)
         self.was_entered = False
         self.typ = byKey(dct, 'typ', 'real')
         self.conducts = byKey(dct, 'conducts', ['light,sound'])
 
-        for exno, (exname, exdict) in enumerate(dct['exits'].items()):
-            self.ui.out("adding exit :" + exname)
-            exdict['name'] = exname
-            self.addExit(exname, exdict)
+        if 'exits' in dct:
+            for exno, (exname, exdict) in enumerate(dct['exits'].items()):
+                self.ui.out("adding exit :" + exname)
+                exdict['name'] = exname
+                self.addExit(exname, exdict)
         self.entrance = None
 
     def conducts(self, typ):
@@ -209,12 +210,14 @@ class Room:
         if not self.was_entered:
             self.ui.out(self.once)
             self.was_entered = True
+            # TODO onEnter event resetting ghost in ActionCastle duncgeons
         self.ui.out(self.description)
         self.ui.out('EXITS:')
-        for exkey in self.dct['exits']:
-            ex = self.dct['exits'][exkey]
-            if not 'hidden' in ex:
-                self.ui.out(exkey)
+        if 'exits' in self.dct:
+            for exkey in self.dct['exits']:
+                ex = self.dct['exits'][exkey]
+                if not 'hidden' in ex:
+                    self.ui.out(exkey)
 
         if entrance:
             self.entrance = entrance
