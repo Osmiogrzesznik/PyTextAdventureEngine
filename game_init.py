@@ -78,6 +78,11 @@ class Game:
     # do not use loop just increase internal index every call of HandleuserInput
 
     def __init__(self, map, user_interface, prevActions, Entities):
+        # TODO separate Player class based on
+        # TODO Agent baseclass, able to perform actions as if player would do (pick up items, open doors etc)
+        # TODO Agent is steered by input or own ogic gets the world state and performs actions
+
+        # TODO map loading from JSON or different formats
         self.nameOflastObjectConsidered = None
         self.lastCmdsStr = ''
         # for contextual use
@@ -88,7 +93,10 @@ class Game:
         self.previousGameplayCommands = []
         # TODO after dying game restarts and the previous commands are added to the voice talking to you
 
-        self.time = 0
+        self.count_time = 0
+        self.count_moves = 0
+        self.count_enteredCommands = 0
+
         self.ui = user_interface
         self.rooms = {}
         self.loaded_room = None
@@ -433,8 +441,10 @@ class Game:
     def handleUserInput(self, cmdsStr):
         self.loop_step(cmdsStr)
         self.lastCmdsStr = cmdsStr
+        self.count_enteredCommands += 1
 
-    def start_loop(self, cmdsStr):
+    # this could be optional in TestUserInterface module for testing
+    def start_console_loop_mode(self, cmdsStr):
         while not self.lastCmdsStr == 'quit':
             origcmdsStr = input('What should i do?').lower()
             self.loop_step(origcmdsStr)
