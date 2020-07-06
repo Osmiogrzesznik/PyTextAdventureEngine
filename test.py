@@ -1,5 +1,5 @@
 from copy import deepcopy
-from map1 import map
+from maps.map1 import map
 from user_interface import TestUserInterfaceBuffered
 from game_init import *
 import unittest
@@ -47,6 +47,7 @@ spoon_item = {
         'eventClass': 'room',
         'eventTyp': 'sound',
     },
+
     'amount_to_take': 1,
     'use_amount': 1,  # uses 1 is default
     'd': '''a silver spoon'''

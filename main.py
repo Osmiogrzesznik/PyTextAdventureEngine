@@ -1,7 +1,7 @@
 # qpy:3
 # qpy:console
 from copy import deepcopy
-from map1 import map
+from maps.map1 import map
 from user_interface import TestUserInterface, UserInterface
 from game_init import *
 

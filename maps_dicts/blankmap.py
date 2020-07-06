@@ -24,6 +24,26 @@ example_event = {
     ]
 }
 
+example_onUse = {
+    # multiple use targets silver spoon can attack the werewolf or help with food or make noise when thrown
+    'eventClass': 'room',
+    'eventTyp': 'change',
+    'amount_confirmation': 'you ran out of {}',  # you can probably format strings?
+    # use wire on lock / allowed keywords
+    'on': ['food', 'bowl'],
+    'change': {
+        # should onUse be optional array? not this but parent dict?
+
+        'targetRoom': 'start',  # if no target room , can be used on door anywhere
+        # lets say that by going under bed and saving wire we can open bonus room
+        'prop': 'empty',
+        'objName': 'food',  # should be only the name of property of object
+        'val': True,
+        'd': 'you ate the food, with the spoon itself',  # description of what exactly ?
+        't': 'you ate the food, with the spoon itself'
+    }
+},
+
 
 example_exit = {  # obj name is the dict key in parent
     'hidden': True,
